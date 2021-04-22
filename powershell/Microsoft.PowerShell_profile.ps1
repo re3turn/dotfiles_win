@@ -7,16 +7,13 @@ Set-PSReadLineOption -EditMode Emacs
 # fzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
-# function
-function removeAlias() {
-    if ($args.Length -ne 1) {
-        return
-    }
-    if (Test-Path ("alias:" + $args[0])) {
-        Remove-Item ("alias:" + $args[0]) -Force
-    }
-}
+# Remove beep
+Set-PSReadlineOption -BellStyle None
 
+# Complete
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
+# function
 # cd $env:USERPROFILE
 # sudo ln -s "<WSL_NETWORK_GHQ_ROOT_PATH>" ghq
 function gcd() {
@@ -51,8 +48,8 @@ function gcd() {
 }
 
 # del alias
-removeAlias ls
-removeAlias cp
-removeAlias mv
-removeAlias wget
-removeAlias curl
+Remove-Item ("alias:ls") -Force
+Remove-Item ("alias:cp") -Force
+Remove-Item ("alias:mv") -Force
+Remove-Item ("alias:wget") -Force
+Remove-Item ("alias:curl") -Force

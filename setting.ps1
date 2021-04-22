@@ -22,7 +22,7 @@ catch [Exception] {
 }
 
 scoop install aria2 
-scoop install git sudo python fzf ghq ffmpeg-nightly youtube-dl gow
+scoop install git sudo python fzf ghq ffmpeg-nightly youtube-dl gow innounp bat jq jid 7zip tar
 
 scoop bucket add versions
 
@@ -44,6 +44,7 @@ catch [Exception] {
     [System.Environment]::SetEnvironmentVariable('PYENV', $env:USERPROFILE + "\.pyenv\pyenv-win\", "User")
     [System.Environment]::SetEnvironmentVariable('PYENV_HOME', $env:USERPROFILE + "\.pyenv\pyenv-win\", "User")
     [System.Environment]::SetEnvironmentVariable('path', $HOME + "\.pyenv\pyenv-win\bin;" + $HOME + "\.pyenv\pyenv-win\shims;" + [System.Environment]::GetEnvironmentVariable("Path", "User"), "User")
+    [System.Environment]::SetEnvironmentVariable('PIPENV_VENV_IN_PROJECT', "1", "User")
 }
 
 # pipenv
