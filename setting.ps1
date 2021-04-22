@@ -1,13 +1,13 @@
 # Powerline
-if (!(Get-InstalledModule oh-my-posh)) {
+if (!(Get-InstalledModule oh-my-posh 2>Out-Null)) {
     Install-Module oh-my-posh -Scope CurrentUser -Force
 }
-if (($PSVersionTable.PSVersion.Major) -gt 5 -and !(Get-InstalledModule PSReadLine)) {
+if (($PSVersionTable.PSVersion.Major) -gt 5 -and !(Get-InstalledModule PSReadLine 2>Out-Null)) {
     Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck
 }
 
 # fzf
-if (!(Get-InstalledModule PSFzf)) {
+if (!(Get-InstalledModule PSFzf 2>Out-Null)) {
     Install-Module -Name PSFzf -Scope CurrentUser -Force
 }
 
@@ -16,7 +16,7 @@ try {
     get-command scoop -ErrorAction Stop
 } 
 catch [Exception] {
-    Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+    Set-ExecutionPolicy RemoteSigned -Scope Process
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
     $env:Path = $env:USERPROFILE + "\scoop\shims;" + $env:Path
 }
@@ -54,4 +54,3 @@ try {
 catch [Exception] {
     pip install pipenv
 }
-
