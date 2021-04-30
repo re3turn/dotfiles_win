@@ -3,15 +3,14 @@ Set-PoshPrompt -Theme Paradox
 
 # PSReadLine
 Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineOption -PredictionSource History
+# Remove beep
+Set-PSReadlineOption -BellStyle None
+# Complete
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 # fzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-
-# Remove beep
-Set-PSReadlineOption -BellStyle None
-
-# Complete
-Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 # function
 # cd $env:USERPROFILE
