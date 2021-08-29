@@ -22,7 +22,7 @@ catch [Exception] {
 }
 
 scoop install aria2 
-scoop install git sudo python fzf ghq ffmpeg-nightly youtube-dl gow innounp bat jq jid 7zip tar
+scoop install git sudo python go fzf ghq ffmpeg-nightly youtube-dl gow innounp bat jq jid 7zip tar
 
 scoop bucket add versions
 
