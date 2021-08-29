@@ -21,10 +21,12 @@ catch [Exception] {
     $env:Path = $env:USERPROFILE + "\scoop\shims;" + $env:Path
 }
 
-scoop install aria2 
-scoop install git sudo python go fzf ghq ffmpeg-nightly youtube-dl gow innounp bat jq jid 7zip tar
-
+# bucket
 scoop bucket add versions
+scoop bucket add my-app-bucket https://github.com/re3turn/scoop-bucket
+
+scoop install aria2
+scoop install git sudo python go fzf ghq ffmpeg-nightly youtube-dl gow innounp bat jq jid 7zip tar win32yank
 
 # pip
 try {
