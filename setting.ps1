@@ -14,7 +14,7 @@ if (!(Get-InstalledModule PSFzf 2>Out-Null)) {
 # scoop
 try {
     get-command scoop -ErrorAction Stop
-} 
+}
 catch [Exception] {
     Set-ExecutionPolicy RemoteSigned -Scope Process
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
@@ -31,7 +31,7 @@ scoop install git sudo python go fzf ghq ffmpeg-nightly youtube-dl gow innounp b
 # pip
 try {
     get-command pip -ErrorAction Stop
-} 
+}
 catch [Exception] {
     [System.Environment]::SetEnvironmentVariable('path', $(scoop prefix python) + "\Scripts;" + [System.Environment]::GetEnvironmentVariable("Path", "User"), "User")
     $env:Path = $(scoop prefix python) + "\Scripts;" + $env:Path
@@ -40,7 +40,7 @@ catch [Exception] {
 # pyenv
 try {
     get-command pyenv -ErrorAction Stop
-} 
+}
 catch [Exception] {
     pip install pyenv-win --target $HOME\.pyenv
     [System.Environment]::SetEnvironmentVariable('PYENV', $env:USERPROFILE + "\.pyenv\pyenv-win\", "User")
@@ -52,7 +52,7 @@ catch [Exception] {
 # pipenv
 try {
     get-command pipenv -ErrorAction Stop
-} 
+}
 catch [Exception] {
     pip install pipenv
 }
