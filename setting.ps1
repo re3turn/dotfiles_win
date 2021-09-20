@@ -2,7 +2,7 @@
 if (!(Get-InstalledModule oh-my-posh 2>Out-Null)) {
     Install-Module oh-my-posh -Scope CurrentUser -Force
 }
-if (($PSVersionTable.PSVersion.Major) -gt 5 -and !(Get-InstalledModule PSReadLine 2>Out-Null)) {
+if (($PSVersionTable.PSVersion.Major) -ge 5 -and !(Get-InstalledModule PSReadLine 2>Out-Null)) {
     Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck
 }
 
