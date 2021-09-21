@@ -27,7 +27,22 @@ scoop install aria2 git
 scoop bucket add versions
 scoop bucket add my-app-bucket https://github.com/re3turn/scoop-bucket
 
-scoop install sudo python go fzf ghq ffmpeg-nightly youtube-dl gow innounp bat jq jid 7zip tar win32yank
+scoop install sudo python go fzf ghq ffmpeg-nightly gow innounp bat jq jid 7zip tar win32yank
+
+# youtube-dl
+try {
+    get-command youtube-dl -ErrorAction Stop
+}
+catch [Exception] {
+    scoop install youtube-dl
+
+    $tempDir = New-TemporaryFile | %{ rm $_; mkdir $_ }
+    $exePath = "$tempDir\vcredist.exe"
+    curl.exe -o $exePath 'https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x86.exe'
+    iex "$exePath Setup /q"
+    $tempDir | Remove-Item -Recurse
+}
+
 
 # pip
 try {
