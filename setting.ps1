@@ -21,7 +21,10 @@ catch [Exception] {
     $env:Path = $env:USERPROFILE + "\scoop\shims;" + $env:Path
 }
 
-scoop install aria2 git
+scoop install aria2
+scoop config aria2-enabled true
+
+scoop install git
 
 # bucket
 scoop bucket add versions
