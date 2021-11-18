@@ -47,8 +47,15 @@ function gcd() {
 }
 
 # del alias
-Remove-Item ("alias:ls") -Force
-Remove-Item ("alias:cp") -Force
-Remove-Item ("alias:mv") -Force
-Remove-Item ("alias:wget") -Force
-Remove-Item ("alias:curl") -Force
+if (!!(Get-Alias cp 2>Out-Null)) {
+    Remove-Item ("alias:cp") -Force
+}
+if (!!(Get-Alias mv 2>Out-Null)) {
+    Remove-Item ("alias:mv") -Force
+}
+if (!!(Get-Alias wget 2>Out-Null)) {
+    Remove-Item ("alias:wget") -Force
+}
+if (!!(Get-Alias curl 2>Out-Null)) {
+    Remove-Item ("alias:curl") -Force
+}
