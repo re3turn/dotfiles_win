@@ -1,13 +1,13 @@
 # Powerline
-if (!(Get-InstalledModule oh-my-posh 2>Out-Null)) {
+if (!(Get-InstalledModule oh-my-posh 2> $null)) {
     Install-Module oh-my-posh -Scope CurrentUser -Force
 }
-if (($PSVersionTable.PSVersion.Major) -ge 5 -and !(Get-InstalledModule PSReadLine 2>Out-Null)) {
+if (($PSVersionTable.PSVersion.Major) -ge 5 -and !(Get-InstalledModule PSReadLine 2> $null)) {
     Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck
 }
 
 # fzf
-if (!(Get-InstalledModule PSFzf 2>Out-Null)) {
+if (!(Get-InstalledModule PSFzf 2> $null)) {
     Install-Module -Name PSFzf -Scope CurrentUser -Force
 }
 
