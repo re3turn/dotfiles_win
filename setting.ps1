@@ -39,7 +39,7 @@ try {
 catch [Exception] {
     scoop install youtube-dl
 
-    $tempDir = New-TemporaryFile | %{ rm $_; mkdir $_ }
+    $tempDir = New-TemporaryFile | ForEach-Object { Remove-Item $_; mkdir $_ }
     $exePath = "$tempDir\vcredist.exe"
     curl.exe -o $exePath 'https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x86.exe'
     iex "$exePath Setup /q"
@@ -75,3 +75,7 @@ try {
 catch [Exception] {
     pip install pipenv
 }
+
+# env
+# https://docs.microsoft.com/en-us/windows/win32/api/processenv/nf-processenv-needcurrentdirectoryforexepathw
+[System.Environment]::SetEnvironmentVariable("NoDefaultCurrentDirectoryInExePath ", "1", "User")
