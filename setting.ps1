@@ -32,12 +32,12 @@ scoop bucket add my-app-bucket https://github.com/re3turn/scoop-bucket
 
 scoop install sudo python go fzf ghq ffmpeg-nightly gow innounp bat jq jid 7zip tar win32yank
 
-# youtube-dl
+# yt-dlp
 try {
-    get-command youtube-dl -ErrorAction Stop
+    get-command yt-dlp -ErrorAction Stop
 }
 catch [Exception] {
-    scoop install youtube-dl
+    scoop install yt-dlp
 
     $tempDir = New-TemporaryFile | ForEach-Object { Remove-Item $_; mkdir $_ }
     $exePath = "$tempDir\vcredist.exe"
